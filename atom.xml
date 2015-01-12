@@ -4,7 +4,7 @@
   <title><![CDATA[My Octopress Blog]]></title>
   <link href="http://gabll.github.io/atom.xml" rel="self"/>
   <link href="http://gabll.github.io/"/>
-  <updated>2015-01-12T15:44:26-05:00</updated>
+  <updated>2015-01-12T15:58:39-05:00</updated>
   <id>http://gabll.github.io/</id>
   <author>
     <name><![CDATA[Your Name]]></name>
@@ -12,5 +12,16 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[First Post]]></title>
+    <link href="http://gabll.github.io/blog/2015/01/12/first-post/"/>
+    <updated>2015-01-12T15:49:47-05:00</updated>
+    <id>http://gabll.github.io/blog/2015/01/12/first-post</id>
+    <content type="html"><![CDATA[<h1>Hello</h1>
+
+<p>This is my <em>first</em> <em>blog</em> post.</p>
+]]></content>
+  </entry>
   
 </feed>
