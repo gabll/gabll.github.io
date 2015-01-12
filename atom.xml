@@ -1,20 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[My Octopress Blog]]></title>
+  <title><![CDATA[Gabll Blog]]></title>
   <link href="http://gabll.github.io/atom.xml" rel="self"/>
   <link href="http://gabll.github.io/"/>
-  <updated>2015-01-12T16:22:31-05:00</updated>
+  <updated>2015-01-12T17:20:04-05:00</updated>
   <id>http://gabll.github.io/</id>
   <author>
-    <name><![CDATA[Your Name]]></name>
+    <name><![CDATA[Gabll]]></name>
     
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
   
   <entry>
-    <title type="html"><![CDATA[First Post]]></title>
+    <title type="html"><![CDATA[First post]]></title>
     <link href="http://gabll.github.io/blog/2015/01/12/first-post/"/>
     <updated>2015-01-12T15:49:47-05:00</updated>
     <id>http://gabll.github.io/blog/2015/01/12/first-post</id>
