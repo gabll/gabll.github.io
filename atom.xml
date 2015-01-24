@@ -4,7 +4,7 @@
   <title><![CDATA[Gabll Blog]]></title>
   <link href="http://gabll.github.io/atom.xml" rel="self"/>
   <link href="http://gabll.github.io/"/>
-  <updated>2015-01-12T17:20:04-05:00</updated>
+  <updated>2015-01-24T17:20:59-05:00</updated>
   <id>http://gabll.github.io/</id>
   <author>
     <name><![CDATA[Gabll]]></name>
@@ -21,7 +21,7 @@
     <content type="html"><![CDATA[<h1>Hello</h1>
 
 <p>This is my <em>first</em> <em>blog</em> post.
-wow</p>
+Change</p>
 ]]></content>
   </entry>
   
