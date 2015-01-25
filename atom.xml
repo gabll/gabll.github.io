@@ -4,7 +4,7 @@
   <title><![CDATA[]]></title>
   <link href="http://gabll.github.io/atom.xml" rel="self"/>
   <link href="http://gabll.github.io/"/>
-  <updated>2015-01-24T23:11:02-05:00</updated>
+  <updated>2015-01-24T23:15:05-05:00</updated>
   <id>http://gabll.github.io/</id>
   <author>
     <name><![CDATA[Gabll]]></name>
@@ -12,6 +12,15 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Iterative Design Process]]></title>
+    <link href="http://gabll.github.io/blog/2015/01/24/iterative-design-process/"/>
+    <updated>2015-01-24T23:14:56-05:00</updated>
+    <id>http://gabll.github.io/blog/2015/01/24/iterative-design-process</id>
+    <content type="html"><![CDATA[
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Hello world!]]></title>
