@@ -4,7 +4,7 @@
   <title><![CDATA[]]></title>
   <link href="http://gabll.github.io/atom.xml" rel="self"/>
   <link href="http://gabll.github.io/"/>
-  <updated>2015-01-24T20:03:50-05:00</updated>
+  <updated>2015-01-24T22:28:52-05:00</updated>
   <id>http://gabll.github.io/</id>
   <author>
     <name><![CDATA[Gabll]]></name>
@@ -18,10 +18,12 @@
     <link href="http://gabll.github.io/blog/2015/01/12/first-post/"/>
     <updated>2015-01-12T15:49:47-05:00</updated>
     <id>http://gabll.github.io/blog/2015/01/12/first-post</id>
-    <content type="html"><![CDATA[<h1>Hello</h1>
+    <content type="html"><![CDATA[<h1>Hello world!</h1>
 
-<p>This is my <em>first</em> <em>blog</em> post.
-Change</p>
+<p>First day at the <a href="http://www.thisismetis.com/">Metis Data Science Bootcamp</a>! We started with a interesting icebreaker game, the <a href="http://datascopeanalytics.com/what-we-think/2014/09/18/hipster-classifier-icebreaker">hipster classifier</a>, and setting up the developing environment for the next weeks (GitHub, Python packages, etc). And as a consequence of this, my first blog post!</p>
+
+<p>This blog is hosted by <a href="https://pages.github.com/">GitHub pages</a>, using <a href="http://octopress.org/">Octopress</a> as a framework for generating contents and pages. Basically, you have a repository in your computer cloned from GitHub, with a subdirectory where you can put all your blog post files written with the <a href="http://en.wikipedia.org/wiki/Markdown">markdown markup language</a>. Two simple commands, <code>rake generate</code> and <code>rake deploy</code>, will turn the markdown files in real HTML pages and push them into your GitHub hosting service.<br/>
+Personalizing the template and the structure is quite time consuming, but there is no need to edit css or editing code.</p>
 ]]></content>
   </entry>
   
