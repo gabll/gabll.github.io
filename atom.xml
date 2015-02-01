@@ -4,7 +4,7 @@
   <title><![CDATA[gabll blog]]></title>
   <link href="http://gabll.github.io/atom.xml" rel="self"/>
   <link href="http://gabll.github.io/"/>
-  <updated>2015-02-01T16:34:03-05:00</updated>
+  <updated>2015-02-01T16:42:12-05:00</updated>
   <id>http://gabll.github.io/</id>
   <author>
     <name><![CDATA[Gabll]]></name>
@@ -14,7 +14,7 @@
 
   
   <entry>
-    <title type="html"><![CDATA[Project Luter: web scraping and linear regression on box office movies data]]></title>
+    <title type="html"><![CDATA[Project Luther: web scraping and linear regression on box office movies data]]></title>
     <link href="http://gabll.github.io/blog/2015/02/01/project-luter-web-scraping-and-linear-regression-on-box-office-movies-data/"/>
     <updated>2015-02-01T16:14:46-05:00</updated>
     <id>http://gabll.github.io/blog/2015/02/01/project-luter-web-scraping-and-linear-regression-on-box-office-movies-data</id>
