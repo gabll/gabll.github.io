@@ -5,13 +5,11 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Blog Archive - gabll blog</title>
+  <title>Decision support system for bank marketing calls - gabll blog</title>
   <meta name="author" content="Gabll">
 
   
-  <meta name="description" content="Blog Archive 2015 Decision support system for bank marketing calls
-Feb 22 2015 Customizing IPython notebook
-Feb 15 2015 Project Luther: web scraping &hellip;">
+  <meta name="description" content="In these weeks at the Metis Data Science Bootcamp we covered SQL on cloud servers (week 4), supervised learning algorithms with sklearn and &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -20,7 +18,7 @@ Feb 15 2015 Project Luther: web scraping &hellip;">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://gabll.github.io/blog/archives/">
+  <link rel="canonical" href="http://gabll.github.io/blog/2015/02/22/decision-support-system-for-bank-marketing-calls/">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
    <link href="/stylesheets/data-table.css" media="screen, projection" rel="stylesheet" type="text/css" />
@@ -63,62 +61,87 @@ Feb 15 2015 Project Luther: web scraping &hellip;">
   <div id="main">
     <div id="content">
       <div>
-<article role="article">
+<article class="hentry" role="article">
   
   <header>
-    <h1 class="entry-title">Blog Archive</h1>
+    
+      <h1 class="entry-title">Decision Support System for Bank Marketing Calls</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+<time class='entry-date' datetime='2015-02-22T10:23:17-05:00'><span class='date'><span class='date-month'>Feb</span> <span class='date-day'>22</span><span class='date-suffix'>nd</span>, <span class='date-year'>2015</span></span> <span class='time'>10:23 am</span></time>
+        
+         | <a href="#disqus_thread">Comments</a>
+        
+      </p>
     
   </header>
-  
-  <div id="blog-archives">
 
 
+<div class="entry-content"><p>In these weeks at the <a href="http://www.thisismetis.com">Metis Data Science Bootcamp</a> we covered SQL on cloud servers (week 4), supervised learning algorithms with <a href="http://scikit-learn.org/">sklearn</a> and <a href="http://statsmodels.sourceforge.net/">statsmodels</a> (week 4-5), classification errors (week 5), interactive visualization and <a href="http://d3js.org/">d3.js</a> (week 6).</p>
 
-  
-  <h2>2015</h2>
+<p>As a connecting fil rouge, we also worked on a individual project. I used <a href="https://archive.ics.uci.edu/ml/datasets/Bank+Marketing">this public dataset</a> from the University of California containing data about bank marketing calls for a short term deposit subscription.</p>
 
-<article>
-  
-<h1><a href="/blog/2015/02/22/decision-support-system-for-bank-marketing-calls/">Decision support system for bank marketing calls</a></h1>
-<time datetime="2015-02-22T10:23:17-05:00" pubdate><span class='month'>Feb</span> <span class='day'>22</span> <span class='year'>2015</span></time>
+<p>My initial goal was to build a classifier in order to understand the probability of subscription given a set of features about the clients (age, job, marital status, etc), the  economic context (euribor rate, unemployment, etc) and the performances of the previous marketing campaigns (days from the last contact, previous campaign result, etc).<br/>
+At the end, I chose a logistic regression model for its performance in terms of precision and recall.</p>
 
+<p>Then, as my first d3 project, I focused on creating a day-to-day <a href="http://gabll.github.io/blog/bank-dss-mvp.html">dashboard</a> for the bank employees that could help them to address the marketing calls to the right clients in the right day.<br/>
+The interface of this decision support system is quite simple: given some inputs about the current day and the economic indicators, it shows customers sorted by their short term deposit subscription probability, with the ability to look for further details about the specific client.</p>
 
-</article>
+<p style="text-align:center;"><a href="http://gabll.github.io/blog/bank-dss-mvp.html"><img src="/images/bank-dss.png" alt="Metis-McNulty" /></a></p>
 
+<p>Some lessons learned during this project: feature selection and model evaluation require a deep understanding of the underlying math and the tools used, and visualization can take the same (or even more) time of cleaning and preparing the data.</p>
 
+<p><a href="https://github.com/gabll/Metis-McNulty">Github repository of this project</a></p>
 
-<article>
-  
-<h1><a href="/blog/2015/02/15/customizing-ipython-notebook/">Customizing IPython notebook</a></h1>
-<time datetime="2015-02-15T17:30:42-05:00" pubdate><span class='month'>Feb</span> <span class='day'>15</span> <span class='year'>2015</span></time>
-
-
-</article>
-
-
-
-<article>
-  
-<h1><a href="/blog/2015/02/01/project-luter-web-scraping-and-linear-regression-on-box-office-movies-data/">Project Luther: web scraping and linear regression on box office movies data</a></h1>
-<time datetime="2015-02-01T16:14:46-05:00" pubdate><span class='month'>Feb</span> <span class='day'>01</span> <span class='year'>2015</span></time>
-
-
-</article>
-
-
-
-<article>
-  
-<h1><a href="/blog/2015/01/12/first-post/">Hello world!</a></h1>
-<time datetime="2015-01-12T15:49:47-05:00" pubdate><span class='month'>Jan</span> <span class='day'>12</span> <span class='year'>2015</span></time>
-
-
-</article>
-
+<p><em>Update (02/24/2015):</em> I moved the logistic regression model to Python (instead of including it in the web page with javascript) using the <a href="http://flask.pocoo.org/">Flask</a> package: <a href="http://104.236.210.23:8000/">live demo here</a>. The response of the server can be a bit slower, but in this way it will be easier in the future to create an model with online training from the user inputs.</p>
 </div>
 
+
+  <footer>
+    <p class="meta">
+      
   
+
+<span class="byline author vcard">Posted by <span class="fn">Gabll</span></span>
+
+      
+
+
+
+<time class='entry-date' datetime='2015-02-22T10:23:17-05:00'><span class='date'><span class='date-month'>Feb</span> <span class='date-day'>22</span><span class='date-suffix'>nd</span>, <span class='date-year'>2015</span></span> <span class='time'>10:23 am</span></time>
+      
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://gabll.github.io/blog/2015/02/22/decision-support-system-for-bank-marketing-calls/" data-via="" data-counturl="http://gabll.github.io/blog/2015/02/22/decision-support-system-for-bank-marketing-calls/" >Tweet</a>
+  
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2015/02/15/customizing-ipython-notebook/" title="Previous Post: Customizing IPython notebook">&laquo; Customizing IPython notebook</a>
+      
+      
+    </p>
+  </footer>
 </article>
+
+  <section>
+    <h1>Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+  </section>
 
 </div>
 
@@ -215,7 +238,10 @@ Feb 15 2015 Project Luther: web scraping &hellip;">
       var disqus_shortname = 'gabll';
       
         
-        var disqus_script = 'count.js';
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://gabll.github.io/blog/2015/02/22/decision-support-system-for-bank-marketing-calls/';
+        var disqus_url = 'http://gabll.github.io/blog/2015/02/22/decision-support-system-for-bank-marketing-calls/';
+        var disqus_script = 'embed.js';
       
     (function () {
       var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;

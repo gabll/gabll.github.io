@@ -5,13 +5,11 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Blog Archive - gabll blog</title>
+  <title>Customizing IPython notebook - gabll blog</title>
   <meta name="author" content="Gabll">
 
   
-  <meta name="description" content="Blog Archive 2015 Decision support system for bank marketing calls
-Feb 22 2015 Customizing IPython notebook
-Feb 15 2015 Project Luther: web scraping &hellip;">
+  <meta name="description" content="IPhython notebook is a very popular platform for coding and sharing projects in Python. Only recently I found a lot of official and unofficial &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -20,7 +18,7 @@ Feb 15 2015 Project Luther: web scraping &hellip;">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://gabll.github.io/blog/archives/">
+  <link rel="canonical" href="http://gabll.github.io/blog/2015/02/15/customizing-ipython-notebook/">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
    <link href="/stylesheets/data-table.css" media="screen, projection" rel="stylesheet" type="text/css" />
@@ -63,62 +61,100 @@ Feb 15 2015 Project Luther: web scraping &hellip;">
   <div id="main">
     <div id="content">
       <div>
-<article role="article">
+<article class="hentry" role="article">
   
   <header>
-    <h1 class="entry-title">Blog Archive</h1>
+    
+      <h1 class="entry-title">Customizing IPython Notebook</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+<time class='entry-date' datetime='2015-02-15T17:30:42-05:00'><span class='date'><span class='date-month'>Feb</span> <span class='date-day'>15</span><span class='date-suffix'>th</span>, <span class='date-year'>2015</span></span> <span class='time'>5:30 pm</span></time>
+        
+         | <a href="#disqus_thread">Comments</a>
+        
+      </p>
     
   </header>
-  
-  <div id="blog-archives">
 
 
+<div class="entry-content"><p><a href="http://ipython.org/notebook.html">IPhython notebook</a> is a very popular platform for coding and sharing projects in Python. Only recently I found a lot of official and unofficial extensions for improving its usability. Among them, I installed the following:</p>
 
-  
-  <h2>2015</h2>
-
-<article>
-  
-<h1><a href="/blog/2015/02/22/decision-support-system-for-bank-marketing-calls/">Decision support system for bank marketing calls</a></h1>
-<time datetime="2015-02-22T10:23:17-05:00" pubdate><span class='month'>Feb</span> <span class='day'>22</span> <span class='year'>2015</span></time>
-
-
-</article>
+<ol>
+<li><a href="https://github.com/ipython-contrib/IPython-notebook-extensions/wiki/Comment-uncomment">Comment-uncomment</a>: this extension creates the shortcut <code>alt+C</code> for commenting code blocks (in the case you have a not-American keyboard and the standard <code>(cmd|ctrl)-/</code> doesn&rsquo;t work)</li>
+<li><a href="https://github.com/sjpfenninger/ipython-extensions#notebook-theme-toggle">Theme toggle</a>: it creates a shortcut for toogle the css theme (I chose the <a href="https://github.com/nsonnad/base16-ipython-notebook#ocean-dark">ocean dark</a> one).</li>
+<li><a href="https://github.com/sjpfenninger/ipython-extensions#notebook-web-notifications">Notify</a>: tired of checking if the kernel is still busy? This extension enables custom browser notifications for when the kernel becomes finally idle.</li>
+<li><a href="https://github.com/ipython-contrib/IPython-notebook-extensions/wiki/aspell">Calico-spell-check</a>: it creates a toolbar button for spell checking in the markdown cells.</li>
+</ol>
 
 
+<p>Moreover, it&rsquo;s possible to enable retina resolution on matplotlib graphs by changing the <code>c.InlineBackend.figure_formats</code> value in the iphyton notebook config file (usually in ~/.iphyton/profile_default/ipython_notebook_config.py).</p>
 
-<article>
-  
-<h1><a href="/blog/2015/02/15/customizing-ipython-notebook/">Customizing IPython notebook</a></h1>
-<time datetime="2015-02-15T17:30:42-05:00" pubdate><span class='month'>Feb</span> <span class='day'>15</span> <span class='year'>2015</span></time>
+<p>Final note: in order to work together, it&rsquo;s important to load the extensions in the right oder. Here is how I load them in my <code>custom.js</code> file:</p>
 
+<pre><code>require(["base/js/events"], function (events) {
+$([IPython.events]).on("app_initialized.NotebookApp", function () {
+    IPython.load_extensions('comment-uncomment');
+    IPython.load_extensions('theme_toggle');
+    });
+});
 
-</article>
+IPython.load_extensions('notify');
+IPython.load_extensions('calico-spell-check');
 
-
-
-<article>
-  
-<h1><a href="/blog/2015/02/01/project-luter-web-scraping-and-linear-regression-on-box-office-movies-data/">Project Luther: web scraping and linear regression on box office movies data</a></h1>
-<time datetime="2015-02-01T16:14:46-05:00" pubdate><span class='month'>Feb</span> <span class='day'>01</span> <span class='year'>2015</span></time>
-
-
-</article>
-
-
-
-<article>
-  
-<h1><a href="/blog/2015/01/12/first-post/">Hello world!</a></h1>
-<time datetime="2015-01-12T15:49:47-05:00" pubdate><span class='month'>Jan</span> <span class='day'>12</span> <span class='year'>2015</span></time>
-
-
-</article>
-
+require(["nbextensions/theme_toggle"], function (theme_toggle) {
+    $([IPython.events]).on("notebook_loaded.Notebook", theme_toggle.theme_toggle_shortcut);
+});
+</code></pre>
 </div>
 
+
+  <footer>
+    <p class="meta">
+      
   
+
+<span class="byline author vcard">Posted by <span class="fn">Gabll</span></span>
+
+      
+
+
+
+<time class='entry-date' datetime='2015-02-15T17:30:42-05:00'><span class='date'><span class='date-month'>Feb</span> <span class='date-day'>15</span><span class='date-suffix'>th</span>, <span class='date-year'>2015</span></span> <span class='time'>5:30 pm</span></time>
+      
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://gabll.github.io/blog/2015/02/15/customizing-ipython-notebook/" data-via="" data-counturl="http://gabll.github.io/blog/2015/02/15/customizing-ipython-notebook/" >Tweet</a>
+  
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2015/02/01/project-luter-web-scraping-and-linear-regression-on-box-office-movies-data/" title="Previous Post: Project Luther: web scraping and linear regression on box office movies data">&laquo; Project Luther: web scraping and linear regression on box office movies data</a>
+      
+      
+        <a class="basic-alignment right" href="/blog/2015/02/22/decision-support-system-for-bank-marketing-calls/" title="Next Post: Decision support system for bank marketing calls">Decision support system for bank marketing calls &raquo;</a>
+      
+    </p>
+  </footer>
 </article>
+
+  <section>
+    <h1>Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+  </section>
 
 </div>
 
@@ -215,7 +251,10 @@ Feb 15 2015 Project Luther: web scraping &hellip;">
       var disqus_shortname = 'gabll';
       
         
-        var disqus_script = 'count.js';
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://gabll.github.io/blog/2015/02/15/customizing-ipython-notebook/';
+        var disqus_url = 'http://gabll.github.io/blog/2015/02/15/customizing-ipython-notebook/';
+        var disqus_script = 'embed.js';
       
     (function () {
       var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;

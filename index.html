@@ -9,7 +9,7 @@
   <meta name="author" content="Gabll">
 
   
-  <meta name="description" content="Last two weeks at the Metis Data Science Bootcamp were quite intense. We learned the basics of web scraping with two interesting and powerful Python &hellip;">
+  <meta name="description" content="In these weeks at the Metis Data Science Bootcamp we covered SQL on cloud servers (week 4), supervised learning algorithms with sklearn and &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -62,6 +62,109 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2015/02/22/decision-support-system-for-bank-marketing-calls/">Decision Support System for Bank Marketing Calls</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+<time class='entry-date' datetime='2015-02-22T10:23:17-05:00'><span class='date'><span class='date-month'>Feb</span> <span class='date-day'>22</span><span class='date-suffix'>nd</span>, <span class='date-year'>2015</span></span> <span class='time'>10:23 am</span></time>
+        
+         | <a href="/blog/2015/02/22/decision-support-system-for-bank-marketing-calls/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>In these weeks at the <a href="http://www.thisismetis.com">Metis Data Science Bootcamp</a> we covered SQL on cloud servers (week 4), supervised learning algorithms with <a href="http://scikit-learn.org/">sklearn</a> and <a href="http://statsmodels.sourceforge.net/">statsmodels</a> (week 4-5), classification errors (week 5), interactive visualization and <a href="http://d3js.org/">d3.js</a> (week 6).</p>
+
+<p>As a connecting fil rouge, we also worked on a individual project. I used <a href="https://archive.ics.uci.edu/ml/datasets/Bank+Marketing">this public dataset</a> from the University of California containing data about bank marketing calls for a short term deposit subscription.</p>
+
+<p>My initial goal was to build a classifier in order to understand the probability of subscription given a set of features about the clients (age, job, marital status, etc), the  economic context (euribor rate, unemployment, etc) and the performances of the previous marketing campaigns (days from the last contact, previous campaign result, etc).<br/>
+At the end, I chose a logistic regression model for its performance in terms of precision and recall.</p>
+
+<p>Then, as my first d3 project, I focused on creating a day-to-day <a href="http://gabll.github.io/blog/bank-dss-mvp.html">dashboard</a> for the bank employees that could help them to address the marketing calls to the right clients in the right day.<br/>
+The interface of this decision support system is quite simple: given some inputs about the current day and the economic indicators, it shows customers sorted by their short term deposit subscription probability, with the ability to look for further details about the specific client.</p>
+
+<p style="text-align:center;"><a href="http://gabll.github.io/blog/bank-dss-mvp.html"><img src="/images/bank-dss.png" alt="Metis-McNulty" /></a></p>
+
+<p>Some lessons learned during this project: feature selection and model evaluation require a deep understanding of the underlying math and the tools used, and visualization can take the same (or even more) time of cleaning and preparing the data.</p>
+
+<p><a href="https://github.com/gabll/Metis-McNulty">Github repository of this project</a></p>
+
+<p><em>Update (02/24/2015):</em> I moved the logistic regression model to Python (instead of including it in the web page with javascript) using the <a href="http://flask.pocoo.org/">Flask</a> package: <a href="http://104.236.210.23:8000/">live demo here</a>. The response of the server can be a bit slower, but in this way it will be easier in the future to create an model with online training from the user inputs.</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2015/02/15/customizing-ipython-notebook/">Customizing IPython Notebook</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+<time class='entry-date' datetime='2015-02-15T17:30:42-05:00'><span class='date'><span class='date-month'>Feb</span> <span class='date-day'>15</span><span class='date-suffix'>th</span>, <span class='date-year'>2015</span></span> <span class='time'>5:30 pm</span></time>
+        
+         | <a href="/blog/2015/02/15/customizing-ipython-notebook/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p><a href="http://ipython.org/notebook.html">IPhython notebook</a> is a very popular platform for coding and sharing projects in Python. Only recently I found a lot of official and unofficial extensions for improving its usability. Among them, I installed the following:</p>
+
+<ol>
+<li><a href="https://github.com/ipython-contrib/IPython-notebook-extensions/wiki/Comment-uncomment">Comment-uncomment</a>: this extension creates the shortcut <code>alt+C</code> for commenting code blocks (in the case you have a not-American keyboard and the standard <code>(cmd|ctrl)-/</code> doesn&rsquo;t work)</li>
+<li><a href="https://github.com/sjpfenninger/ipython-extensions#notebook-theme-toggle">Theme toggle</a>: it creates a shortcut for toogle the css theme (I chose the <a href="https://github.com/nsonnad/base16-ipython-notebook#ocean-dark">ocean dark</a> one).</li>
+<li><a href="https://github.com/sjpfenninger/ipython-extensions#notebook-web-notifications">Notify</a>: tired of checking if the kernel is still busy? This extension enables custom browser notifications for when the kernel becomes finally idle.</li>
+<li><a href="https://github.com/ipython-contrib/IPython-notebook-extensions/wiki/aspell">Calico-spell-check</a>: it creates a toolbar button for spell checking in the markdown cells.</li>
+</ol>
+
+
+<p>Moreover, it&rsquo;s possible to enable retina resolution on matplotlib graphs by changing the <code>c.InlineBackend.figure_formats</code> value in the iphyton notebook config file (usually in ~/.iphyton/profile_default/ipython_notebook_config.py).</p>
+
+<p>Final note: in order to work together, it&rsquo;s important to load the extensions in the right oder. Here is how I load them in my <code>custom.js</code> file:</p>
+
+<pre><code>require(["base/js/events"], function (events) {
+$([IPython.events]).on("app_initialized.NotebookApp", function () {
+    IPython.load_extensions('comment-uncomment');
+    IPython.load_extensions('theme_toggle');
+    });
+});
+
+IPython.load_extensions('notify');
+IPython.load_extensions('calico-spell-check');
+
+require(["nbextensions/theme_toggle"], function (theme_toggle) {
+    $([IPython.events]).on("notebook_loaded.Notebook", theme_toggle.theme_toggle_shortcut);
+});
+</code></pre>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>

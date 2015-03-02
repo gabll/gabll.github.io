@@ -1,6 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>http://gabll.github.io/blog/2015/02/22/decision-support-system-for-bank-marketing-calls/</loc>
+    <lastmod>2015-02-22T10:23:17-05:00</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>http://gabll.github.io/blog/2015/02/15/customizing-ipython-notebook/</loc>
+    <lastmod>2015-02-15T17:30:42-05:00</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>http://gabll.github.io/blog/2015/02/01/project-luter-web-scraping-and-linear-regression-on-box-office-movies-data/</loc>
     <lastmod>2015-02-01T16:14:46-05:00</lastmod>
     <priority>0.8</priority>
@@ -12,19 +22,19 @@
   </url>
   <url>
     <loc>http://gabll.github.io/blog/archives/</loc>
-    <lastmod>2015-02-22T23:07:43-05:00</lastmod>
+    <lastmod>2015-03-01T22:40:30-05:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>http://gabll.github.io/</loc>
-    <lastmod>2015-02-22T23:07:43-05:00</lastmod>
+    <lastmod>2015-03-01T22:40:30-05:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>http://gabll.github.io/about/</loc>
-    <lastmod>2015-02-22T23:07:43-05:00</lastmod>
+    <lastmod>2015-03-01T22:40:30-05:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
