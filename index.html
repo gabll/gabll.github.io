@@ -93,15 +93,15 @@
 At the end, I chose a logistic regression model for its performance in terms of precision and recall.</p>
 
 <p>Then, as my first d3 project, I focused on creating a day-to-day <a href="http://gabll.github.io/blog/bank-dss-mvp.html">dashboard</a> for the bank employees that could help them to address the marketing calls to the right clients in the right day.<br/>
-The interface of this decision support system is quite simple: given some inputs about the current day and the economic indicators, it shows customers sorted by their short term deposit subscription probability, with the ability to look for further details about the specific client.</p>
+The interface of this decision support system is quite simple: given some inputs about the current day and the economic indicators, it shows the customers sorted by their short term deposit subscription probability, with the ability to look for further details about the specific client.</p>
 
 <p style="text-align:center;"><a href="http://gabll.github.io/blog/bank-dss-mvp.html"><img src="/images/bank-dss.png" alt="Metis-McNulty" /></a></p>
 
-<p>Some lessons learned during this project: feature selection and model evaluation require a deep understanding of the underlying math and the tools used, and visualization can take the same (or even more) time of cleaning and preparing the data.</p>
+<p>Some lessons learned during this project: feature selection and model evaluation require a deep understanding of the underlying math and the tools used, and visualization can take the same (or even more) amount of time of cleaning and preparing the data.</p>
 
 <p><a href="https://github.com/gabll/Metis-McNulty">Github repository of this project</a></p>
 
-<p><em>Update (02/24/2015):</em> I moved the logistic regression model to Python (instead of including it in the web page with javascript) using the <a href="http://flask.pocoo.org/">Flask</a> package: <a href="http://104.236.210.23:8000/">live demo here</a>. The response of the server can be a bit slower, but in this way it will be easier in the future to create an model with online training from the user inputs.</p>
+<p><em>Update (02/24/2015):</em> I moved the logistic regression model to Python (instead of including it in the web page with javascript) using the <a href="http://flask.pocoo.org/">Flask</a> package: <a href="http://104.236.210.23:8000/">live demo here</a>. The response of the server can be a bit slower, but in this way it will be easier in the future to create a model with online training from the user inputs.</p>
 </div>
   
   
@@ -141,7 +141,7 @@ The interface of this decision support system is quite simple: given some inputs
 </ol>
 
 
-<p>Moreover, it&rsquo;s possible to enable retina resolution on matplotlib graphs by changing the <code>c.InlineBackend.figure_formats</code> value in the iphyton notebook config file (usually in ~/.iphyton/profile_default/ipython_notebook_config.py).</p>
+<p>Moreover, it&rsquo;s possible to enable retina resolution on matplotlib graphs by changing the <code>c.InlineBackend.figure_formats</code> value in the iphyton notebook config file (usually in ~/.iphyton/profile_default/ipython_notebook_config.py), and remove the space-consuming header of the page by adding <code>div#header {display: none !important;}</code> to the custom.css file (same folder).</p>
 
 <p>Final note: in order to work together, it&rsquo;s important to load the extensions in the right oder. Here is how I load them in my <code>custom.js</code> file:</p>
 
@@ -188,8 +188,8 @@ require(["nbextensions/theme_toggle"], function (theme_toggle) {
   </header>
 
 
-  <div class="entry-content"><p>Last two weeks at the <a href="http://www.thisismetis.com/data-science">Metis Data Science Bootcamp</a> were quite intense. We learned the basics of web scraping with two interesting and powerful Python packages, <a href="http://www.crummy.com/software/BeautifulSoup/">BeautifulSoup</a> and <a href="https://code.google.com/p/selenium/">Selenium</a>, how to analyse and manipulate dataframes with <a href="http://pandas.pydata.org/">Pandas</a> and theory/applications of linear regression models.<br/>
-At the end, we realised and presented to the class an individual project based on &ldquo;movies data&rdquo;. Everyone tried to answer a different question, from predicting success of movies based on tv series to understanding the key factors that determine the success of trilogies. My project was about predicting the box office opening income during the first weekend and determing the additional opening revenues in case of changing the release season given the genre.</p>
+  <div class="entry-content"><p>Last two weeks at the <a href="http://www.thisismetis.com/data-science">Metis Data Science Bootcamp</a> were quite intense. We learned the basics of web scraping with two interesting and powerful Python packages, <a href="http://www.crummy.com/software/BeautifulSoup/">BeautifulSoup</a> and <a href="https://code.google.com/p/selenium/">Selenium</a>, how to analyze and manipulate dataframes with <a href="http://pandas.pydata.org/">Pandas</a> and theory/applications of linear regression models.<br/>
+At the end, we developed and presented to the class an individual project based on &ldquo;movies data&rdquo;. Everyone tried to answer a different question, from predicting success of movies based on tv series to understanding the key factors that determine the success of trilogies. My project was about predicting the box office opening income during the first weekend and determing the additional opening revenues in case of changing the release season given the genre.</p>
 
 <p style="text-align:center;"><img src="/images/model1.png" alt="Predicting opening income" /></p>
 
