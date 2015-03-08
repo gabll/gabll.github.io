@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>http://gabll.github.io/blog/2015/03/28/clustering-recipes-and-ingredients/</loc>
+    <lastmod>2015-03-28T00:30:17-04:00</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>http://gabll.github.io/blog/2015/02/22/decision-support-system-for-bank-marketing-calls/</loc>
     <lastmod>2015-02-22T10:23:17-05:00</lastmod>
     <priority>0.8</priority>
@@ -22,25 +27,30 @@
   </url>
   <url>
     <loc>http://gabll.github.io/blog/archives/</loc>
-    <lastmod>2015-03-04T22:49:16-05:00</lastmod>
+    <lastmod>2015-03-08T01:07:33-05:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>http://gabll.github.io/</loc>
-    <lastmod>2015-03-04T22:49:16-05:00</lastmod>
+    <lastmod>2015-03-08T01:07:33-05:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>http://gabll.github.io/about/</loc>
-    <lastmod>2015-03-04T22:49:16-05:00</lastmod>
+    <lastmod>2015-03-08T01:07:33-05:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>http://gabll.github.io/blog/bank-dss-mvp.html</loc>
     <lastmod>2015-02-22T22:38:43-05:00</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>http://gabll.github.io/blog/ingredients_clustering.html</loc>
+    <lastmod>2015-03-07T22:54:20-05:00</lastmod>
     <priority>0.6</priority>
   </url>
 </urlset>

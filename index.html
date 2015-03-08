@@ -9,7 +9,7 @@
   <meta name="author" content="Gabll">
 
   
-  <meta name="description" content="In these weeks at the Metis Data Science Bootcamp we covered SQL on cloud servers (week 4), supervised learning algorithms with sklearn and &hellip;">
+  <meta name="description" content="In the last two weeks at the Metis Data Science Bootcamp we dived into NoSQL databases and natural language processing (week 7), unsupervised &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -62,6 +62,48 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2015/03/28/clustering-recipes-and-ingredients/">Applying Clustering Techniques on Recipes and Ingredients</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+<time class='entry-date' datetime='2015-03-28T00:30:17-04:00'><span class='date'><span class='date-month'>Mar</span> <span class='date-day'>28</span><span class='date-suffix'>th</span>, <span class='date-year'>2015</span></span> <span class='time'>12:30 am</span></time>
+        
+         | <a href="/blog/2015/03/28/clustering-recipes-and-ingredients/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>In the last two weeks at the <a href="http://www.thisismetis.com">Metis Data Science Bootcamp</a> we dived into NoSQL databases and natural language processing (week 7), unsupervised learning algorithms (week 7-8), dimensionality reduction, topic modeling and similarity (week 8), while working on an individual project: I&rsquo;ve chosen to apply unsupervised learning techniques for clustering text data.</p>
+
+<p>Firstly, I used the <a href="http://developer.pearson.com/apis/pearson-kitchen-manager">Pearson Kitchen Manager API</a> for clustering almost 500 worldwide recipes basing on their ingredients. After applying several algorithms, I extracted the top keywords for some of the clusters and printed them in word clouds:</p>
+
+<p style="text-align:center;"><a href="/images/Rec_cluster_1.jpg"><img src="/images/Rec_cluster_1.jpg" width="200" alt="Rec_cluster_1" /></a> <a href="/images/Rec_cluster_1.jpg"><img src="/images/Rec_cluster_2.jpg" width="200" alt="Rec_cluster_2" /></a> <a href="/images/Rec_cluster_1.jpg"><img src="/images/Rec_cluster_4.jpg" width="200" alt="Rec_cluster_4" /></a></p>
+
+<p>Secondly, I switched to the <a href="http://developer.yummly.com">Yummly API</a> for clustering ingredients on 17,000 Italian recipes from 1,000 blogs and kitchen websites. This time, the basic idea underneath ingredients clustering was to extract a bunch of not-too-rare and not-too-common ingredients, so I selected 71 ingredients with the help of a variance threshold. Then I built a <em>relationship matrix</em> between these ingredients using different scoring methods (jaccard similarity, joint probability score, etc). After trying some combinations of algorithms and input matrices, I put one of the results in this <a href="http://gabll.github.io/blog/ingredients_clustering.html">d3 visualization</a>:</p>
+
+<p style="text-align:center;"><a href="http://gabll.github.io/blog/ingredients_clustering.html"><img src="/images/ingredients.png" alt="Metis-McNulty" /></a></p>
+
+<p>As we should expect, items like <em>(yeast, flour, milk)</em> or <em>(mozzarella, tomato sauce, pizza doughs)</em> are grouped together, and the clusters themselves can represent a good support while compiling a shopping list.</p>
+
+<p>At the end, I learned that tuning a clustering algorithm is more an art than a science: you need to explore not conventional approaches and combine different techniques basing on your intuition and the specific question you are trying to answer.</p>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -249,7 +291,7 @@ Personalising template and layout is quite time consuming, but there is no need 
     <section id="titles">
   <a href="http://gabll.github.io" title="gabll blog"><img id="logo" src="http://gabll.github.io/images/logo.png" /></a>
   <h1 id="site_title"></h1>
-  <h3 id="site_subtitle">Disparate Data Science insights and tools</h3>
+  <h3 id="site_subtitle">Disparate Data Science Insights and Tools</h3>
 </section>
 
 <section id="menu">
@@ -275,8 +317,6 @@ Personalising template and layout is quite time consuming, but there is no need 
 
   
   
-  
-    <a href="https://linkedin.com/in/gabll" title="gabll"><i class="fa fa-linkedin fa-2x"></i></a>
   
 </section>
 

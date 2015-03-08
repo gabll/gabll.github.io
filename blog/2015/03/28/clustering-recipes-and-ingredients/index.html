@@ -5,11 +5,11 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Project Luther: web scraping and linear regression on box office movies data - gabll blog</title>
+  <title>Applying clustering techniques on recipes and ingredients - gabll blog</title>
   <meta name="author" content="Gabll">
 
   
-  <meta name="description" content="Last two weeks at the Metis Data Science Bootcamp were quite intense. We learned the basics of web scraping with two interesting and powerful Python &hellip;">
+  <meta name="description" content="In the last two weeks at the Metis Data Science Bootcamp we dived into NoSQL databases and natural language processing (week 7), unsupervised &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -18,7 +18,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://gabll.github.io/blog/2015/02/01/project-luter-web-scraping-and-linear-regression-on-box-office-movies-data/">
+  <link rel="canonical" href="http://gabll.github.io/blog/2015/03/28/clustering-recipes-and-ingredients/">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
    <link href="/stylesheets/data-table.css" media="screen, projection" rel="stylesheet" type="text/css" />
@@ -65,7 +65,7 @@
   
   <header>
     
-      <h1 class="entry-title">Project Luther: Web Scraping and Linear Regression on Box Office Movies Data</h1>
+      <h1 class="entry-title">Applying Clustering Techniques on Recipes and Ingredients</h1>
     
     
       <p class="meta">
@@ -73,7 +73,7 @@
 
 
 
-<time class='entry-date' datetime='2015-02-01T16:14:46-05:00'><span class='date'><span class='date-month'>Feb</span> <span class='date-day'>1</span><span class='date-suffix'>st</span>, <span class='date-year'>2015</span></span> <span class='time'>4:14 pm</span></time>
+<time class='entry-date' datetime='2015-03-28T00:30:17-04:00'><span class='date'><span class='date-month'>Mar</span> <span class='date-day'>28</span><span class='date-suffix'>th</span>, <span class='date-year'>2015</span></span> <span class='time'>12:30 am</span></time>
         
          | <a href="#disqus_thread">Comments</a>
         
@@ -82,14 +82,19 @@
   </header>
 
 
-<div class="entry-content"><p>Last two weeks at the <a href="http://www.thisismetis.com/data-science">Metis Data Science Bootcamp</a> were quite intense. We learned the basics of web scraping with two interesting and powerful Python packages, <a href="http://www.crummy.com/software/BeautifulSoup/">BeautifulSoup</a> and <a href="https://code.google.com/p/selenium/">Selenium</a>, how to analyze and manipulate dataframes with <a href="http://pandas.pydata.org/">Pandas</a> and theory/applications of linear regression models.<br/>
-At the end, we developed and presented to the class an individual project based on &ldquo;movies data&rdquo;. Everyone tried to answer a different question, from predicting success of movies based on tv series to understanding the key factors that determine the success of trilogies. My project was about predicting the box office opening income during the first weekend and determing the additional opening revenues in case of changing the release season given the genre.</p>
+<div class="entry-content"><p>In the last two weeks at the <a href="http://www.thisismetis.com">Metis Data Science Bootcamp</a> we dived into NoSQL databases and natural language processing (week 7), unsupervised learning algorithms (week 7-8), dimensionality reduction, topic modeling and similarity (week 8), while working on an individual project: I&rsquo;ve chosen to apply unsupervised learning techniques for clustering text data.</p>
 
-<p style="text-align:center;"><img src="/images/model1.png" alt="Predicting opening income" /></p>
+<p>Firstly, I used the <a href="http://developer.pearson.com/apis/pearson-kitchen-manager">Pearson Kitchen Manager API</a> for clustering almost 500 worldwide recipes basing on their ingredients. After applying several algorithms, I extracted the top keywords for some of the clusters and printed them in word clouds:</p>
 
-<p>A couple of lessons learnt: production budget and number of opening theaters play a important role in predicting the opening income, and sometimes the holiday season doesn&rsquo;t represent the &ldquo;best season&rdquo; in case of comedy or action films.</p>
+<p style="text-align:center;"><a href="/images/Rec_cluster_1.jpg"><img src="/images/Rec_cluster_1.jpg" width="200" alt="Rec_cluster_1" /></a> <a href="/images/Rec_cluster_1.jpg"><img src="/images/Rec_cluster_2.jpg" width="200" alt="Rec_cluster_2" /></a> <a href="/images/Rec_cluster_1.jpg"><img src="/images/Rec_cluster_4.jpg" width="200" alt="Rec_cluster_4" /></a></p>
 
-<p>More insights in <a href="https://github.com/gabll/Metis-Luther/blob/master/Project_Luther_rev06.pdf">this presentation</a>; web scraping scripts and linear regression analysis in this <a href="https://github.com/gabll/Metis-Luther.git">GitHub repository</a>.</p>
+<p>Secondly, I switched to the <a href="http://developer.yummly.com">Yummly API</a> for clustering ingredients on 17,000 Italian recipes from 1,000 blogs and kitchen websites. This time, the basic idea underneath ingredients clustering was to extract a bunch of not-too-rare and not-too-common ingredients, so I selected 71 ingredients with the help of a variance threshold. Then I built a <em>relationship matrix</em> between these ingredients using different scoring methods (jaccard similarity, joint probability score, etc). After trying some combinations of algorithms and input matrices, I put one of the results in this <a href="http://gabll.github.io/blog/ingredients_clustering.html">d3 visualization</a>:</p>
+
+<p style="text-align:center;"><a href="http://gabll.github.io/blog/ingredients_clustering.html"><img src="/images/ingredients.png" alt="Metis-McNulty" /></a></p>
+
+<p>As we should expect, items like <em>(yeast, flour, milk)</em> or <em>(mozzarella, tomato sauce, pizza doughs)</em> are grouped together, and the clusters themselves can represent a good support while compiling a shopping list.</p>
+
+<p>At the end, I learned that tuning a clustering algorithm is more an art than a science: you need to explore not conventional approaches and combine different techniques basing on your intuition and the specific question you are trying to answer.</p>
 </div>
 
 
@@ -104,7 +109,7 @@ At the end, we developed and presented to the class an individual project based 
 
 
 
-<time class='entry-date' datetime='2015-02-01T16:14:46-05:00'><span class='date'><span class='date-month'>Feb</span> <span class='date-day'>1</span><span class='date-suffix'>st</span>, <span class='date-year'>2015</span></span> <span class='time'>4:14 pm</span></time>
+<time class='entry-date' datetime='2015-03-28T00:30:17-04:00'><span class='date'><span class='date-month'>Mar</span> <span class='date-day'>28</span><span class='date-suffix'>th</span>, <span class='date-year'>2015</span></span> <span class='time'>12:30 am</span></time>
       
 
 
@@ -112,7 +117,7 @@ At the end, we developed and presented to the class an individual project based 
     
       <div class="sharing">
   
-  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://gabll.github.io/blog/2015/02/01/project-luter-web-scraping-and-linear-regression-on-box-office-movies-data/" data-via="" data-counturl="http://gabll.github.io/blog/2015/02/01/project-luter-web-scraping-and-linear-regression-on-box-office-movies-data/" >Tweet</a>
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://gabll.github.io/blog/2015/03/28/clustering-recipes-and-ingredients/" data-via="" data-counturl="http://gabll.github.io/blog/2015/03/28/clustering-recipes-and-ingredients/" >Tweet</a>
   
   
   
@@ -121,10 +126,8 @@ At the end, we developed and presented to the class an individual project based 
     
     <p class="meta">
       
-        <a class="basic-alignment left" href="/blog/2015/01/12/first-post/" title="Previous Post: Hello world!">&laquo; Hello world!</a>
+        <a class="basic-alignment left" href="/blog/2015/02/22/decision-support-system-for-bank-marketing-calls/" title="Previous Post: Decision support system for bank marketing calls">&laquo; Decision support system for bank marketing calls</a>
       
-      
-        <a class="basic-alignment right" href="/blog/2015/02/15/customizing-ipython-notebook/" title="Next Post: Customizing IPython notebook">Customizing IPython notebook &raquo;</a>
       
     </p>
   </footer>
@@ -230,8 +233,8 @@ At the end, we developed and presented to the class an individual project based 
       
         
         // var disqus_developer = 1;
-        var disqus_identifier = 'http://gabll.github.io/blog/2015/02/01/project-luter-web-scraping-and-linear-regression-on-box-office-movies-data/';
-        var disqus_url = 'http://gabll.github.io/blog/2015/02/01/project-luter-web-scraping-and-linear-regression-on-box-office-movies-data/';
+        var disqus_identifier = 'http://gabll.github.io/blog/2015/03/28/clustering-recipes-and-ingredients/';
+        var disqus_url = 'http://gabll.github.io/blog/2015/03/28/clustering-recipes-and-ingredients/';
         var disqus_script = 'embed.js';
       
     (function () {
