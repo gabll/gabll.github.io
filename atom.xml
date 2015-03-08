@@ -4,7 +4,7 @@
   <title><![CDATA[gabll blog]]></title>
   <link href="http://gabll.github.io/atom.xml" rel="self"/>
   <link href="http://gabll.github.io/"/>
-  <updated>2015-03-08T18:18:50-04:00</updated>
+  <updated>2015-03-08T18:22:38-04:00</updated>
   <id>http://gabll.github.io/</id>
   <author>
     <name><![CDATA[Gabll]]></name>
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[Applying clustering techniques on recipes and ingredients]]></title>
-    <link href="http://gabll.github.io/blog/2015/03/28/clustering-recipes-and-ingredients/"/>
-    <updated>2015-03-28T00:30:17-04:00</updated>
-    <id>http://gabll.github.io/blog/2015/03/28/clustering-recipes-and-ingredients</id>
+    <link href="http://gabll.github.io/blog/2015/03/07/clustering-recipes-and-ingredients/"/>
+    <updated>2015-03-07T23:30:17-05:00</updated>
+    <id>http://gabll.github.io/blog/2015/03/07/clustering-recipes-and-ingredients</id>
     <content type="html"><![CDATA[<p>In the last two weeks at the <a href="http://www.thisismetis.com">Metis Data Science Bootcamp</a> we dived into NoSQL databases and natural language processing (week 7), unsupervised learning algorithms (week 7-8), dimensionality reduction, topic modeling and similarity (week 8), while working on an individual project: I choose to apply unsupervised learning techniques for clustering text data.</p>
 
 <p>Firstly, I used the <a href="http://developer.pearson.com/apis/pearson-kitchen-manager">Pearson Kitchen Manager API</a> for clustering almost 500 worldwide recipes basing on their ingredients. After applying several algorithms, I extracted the top keywords for some of the clusters and printed them in word clouds:</p>

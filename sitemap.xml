@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>http://gabll.github.io/blog/2015/03/28/clustering-recipes-and-ingredients/</loc>
-    <lastmod>2015-03-28T00:30:17-04:00</lastmod>
+    <loc>http://gabll.github.io/blog/2015/03/07/clustering-recipes-and-ingredients/</loc>
+    <lastmod>2015-03-07T23:30:17-05:00</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
@@ -27,19 +27,19 @@
   </url>
   <url>
     <loc>http://gabll.github.io/blog/archives/</loc>
-    <lastmod>2015-03-08T18:18:50-04:00</lastmod>
+    <lastmod>2015-03-08T18:22:38-04:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>http://gabll.github.io/</loc>
-    <lastmod>2015-03-08T18:18:50-04:00</lastmod>
+    <lastmod>2015-03-08T18:22:38-04:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>http://gabll.github.io/about/</loc>
-    <lastmod>2015-03-08T18:18:50-04:00</lastmod>
+    <lastmod>2015-03-08T18:22:38-04:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
