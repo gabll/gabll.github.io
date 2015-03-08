@@ -4,7 +4,7 @@
   <title><![CDATA[gabll blog]]></title>
   <link href="http://gabll.github.io/atom.xml" rel="self"/>
   <link href="http://gabll.github.io/"/>
-  <updated>2015-03-08T01:07:33-05:00</updated>
+  <updated>2015-03-08T17:06:31-04:00</updated>
   <id>http://gabll.github.io/</id>
   <author>
     <name><![CDATA[Gabll]]></name>
@@ -74,7 +74,7 @@ The interface of this decision support system is quite simple: given some inputs
 </ol>
 
 
-<p>Moreover, it&rsquo;s possible to enable retina resolution on matplotlib graphs by changing the <code>c.InlineBackend.figure_formats</code> value in the iphyton notebook config file (usually in ~/.iphyton/profile_default/ipython_notebook_config.py), and remove the space-consuming header of the page by adding <code>div#header {display: none !important;}</code> to the custom.css file (same folder).</p>
+<p>Moreover, it&rsquo;s possible to enable retina resolution on matplotlib graphs by changing the <code>c.InlineBackend.figure_formats</code> value in the iphyton notebook config file (usually in ~/.iphyton/profile_default/ipython_notebook_config.py), and remove the space-consuming header of the page by adding <code>div#header {display: none !important;}</code> to the custom.css file.</p>
 
 <p>Final note: in order to work together, it&rsquo;s important to load the extensions in the right oder. Here is how I load them in my <code>custom.js</code> file:</p>
 
