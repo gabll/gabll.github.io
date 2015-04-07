@@ -1,0 +1,284 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>A recommendation engine for restaurants based on online reviews - gabll blog</title>
+  <meta name="author" content="Gabll">
+
+  
+  <meta name="description" content="As always when you are experiencing a &ldquo;flow condition&rdquo;, I didin&rsquo;t realized that the Metis Data Science Bootcamp came to an end. &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://gabll.github.io/blog/2015/04/07/recommendation-restaurants/">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+   <link href="/stylesheets/data-table.css" media="screen, projection" rel="stylesheet" type="text/css" />
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="/javascripts/ender.js"></script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <link href="/atom.xml" rel="alternate" title="gabll blog" type="application/atom+xml">
+  <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+
+<!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href='http://fonts.googleapis.com/css?family=Lato:400,100,100italic,300,300italic,400italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Lora:400,400italic,700,700italic' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Source+Code+Pro:200,300,400,500,600,700,900' rel='stylesheet' type='text/css'>
+
+
+
+
+  
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-58934310-1']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+
+
+  <style>html{background: url(/images/background.png) no-repeat center center fixed;-webkit-background-size: cover;-moz-background-size: cover;-o-background-size: cover;background-size: cover;}</style>
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+</hgroup>
+
+</header>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">A Recommendation Engine for Restaurants Based on Online Reviews</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+<time class='entry-date' datetime='2015-04-07T00:30:17-04:00'><span class='date'><span class='date-month'>Apr</span> <span class='date-day'>7</span><span class='date-suffix'>th</span>, <span class='date-year'>2015</span></span> <span class='time'>12:30 am</span></time>
+        
+         | <a href="#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><p>As always when you are experiencing a &ldquo;<a href="http://en.wikipedia.org/wiki/Flow_(psychology)#Components">flow condition</a>&rdquo;, I didin&rsquo;t realized that the <a href="http://www.thisismetis.com/">Metis Data Science Bootcamp</a> came to an end. During these intense weeks we deepened our knlowledge of statistics and machine learning, as well as design and data visualization, in a way that surely I wasn&rsquo;t expecting at the beginning.</p>
+
+<p>In the last 4 weeks we covered &ldquo;Big Data&rdquo; topics like Hadoop, MapReduce, Hive, etc, while focusing on a final passion project. I worked on the design and development of a collaborative-filtering recommendation engine for restaurants based on user reviews.</p>
+
+<p><strong>Scraping framework</strong>: I used <a href="http://scrapy.org/">Scrapy</a> and <a href="https://github.com/scrapinghub/splash">Splash</a> for rendering and sraping almost one million reviews of NYC restaurants. I found Scrapy is a very robust and powerful tool for scraping, since he can manage concurrent requests and can be easily interfaced with javascript renderers like Splash.</p>
+
+<p style="text-align:center;"><img src="/images/framewk.png" width="500" alt="Framework" /></p>
+
+<p>The basic idea underneath the <a href="http://en.wikipedia.org/wiki/Collaborative_filtering">collaborative-filtering</a> algorithm is to look for similar users, find the restaurants that they liked and rank them.</p>
+
+<p><strong>Similar users</strong>: after feature selection (I considered only restaurants and users with at least 5 reviews) and dimensionality reduction (using the <a href="http://scikit-learn.org/stable/auto_examples/decomposition/plot_incremental_pca.html">IncrementalPCA</a> in the last version of sklearn - 0.16), I got a dense matrix in which similar users can be found with a <a href="http://scikit-learn.org/stable/modules/neighbors.html">nearest neighbor</a> algorithm, using a <a href="http://docs.scipy.org/doc/scipy-0.14.0/reference/generated/scipy.spatial.distance.correlation.html">correlation</a> distance metric (it permits to take in account different scoring attitudes between the users, e.g. one user may give only scores from 3 to 5 stars and another only from 2 to 4).</p>
+
+<p style="text-align:center;"><img src="/images/rec.png" width="500" alt="Sim_users" /></p>
+
+<p><strong>Recommendations</strong>: after getting the list of restaurants reviewed by the similar users, I developed a scoring method for preticting the number of stars. Based on a bayesian approach, it consists basically in updating a prior containing the overall stars smoothed by the total number of reviews for the restaurant with a posterior, i.e. the weighted average of the reviews of the similar users (where the weights takes in account the number of restaurants in common, the total reviews of the user and his number of helpful votes reveived).</p>
+
+<p style="text-align:center;"><img src="/images/formula.png" width="500" alt="Formula" /></p>
+
+<p>The main tuning parameters of the model are k (the number of nearest users to consider), alpha (how many additional users to include in the prior) and beta (how many reviews a restaurant must have in order to consider the overall average stars reliable).</p>
+
+<p><strong>User interface</strong>: Afer tuning the model, I created a web application using <a href="http://flask.pocoo.org/">Flask</a>, <a href="http://getbootstrap.com/">Boostrap</a> and other javascript packages like <a href="http://www.json2html.com/">json2html</a>, <a href="http://nicolasbize.com/magicsuggest/">magicsuggest</a> and <a href="http://davidstutz.github.io/bootstrap-multiselect/">multiselect</a>. While I already used Flask in a previous project, Bootstrap was a very nice surpise: it&rsquo;s modern, clean and easy to use - all features that makes it an ideal choice for rapid prototyping.</p>
+
+<p>Here is the final version of the webapp: <strong><a href="http://www.restommendation.com">www.restommendation.com</a></strong></p>
+
+<p style="text-align:center;"><a href="http://www.restommendation.com/"><img src="/images/screen.png" width="500" alt="Screenshot" /></a></p>
+
+<p>As next steps, I will try to make the app available also for other cities, as well as creating an online-training mechanism for improving the recommendations (like/don&rsquo;t like buttons).</p>
+
+<p><a href="https://github.com/gabll/Metis-Kojak">GitHub repository for this project</a></p>
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">Gabll</span></span>
+
+      
+
+
+
+<time class='entry-date' datetime='2015-04-07T00:30:17-04:00'><span class='date'><span class='date-month'>Apr</span> <span class='date-day'>7</span><span class='date-suffix'>th</span>, <span class='date-year'>2015</span></span> <span class='time'>12:30 am</span></time>
+      
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://gabll.github.io/blog/2015/04/07/recommendation-restaurants/" data-via="" data-counturl="http://gabll.github.io/blog/2015/04/07/recommendation-restaurants/" >Tweet</a>
+  
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2015/03/07/clustering-recipes-and-ingredients/" title="Previous Post: Applying clustering techniques on recipes and ingredients">&laquo; Applying clustering techniques on recipes and ingredients</a>
+      
+      
+    </p>
+  </footer>
+</article>
+
+  <section>
+    <h1>Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+  </section>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section id="titles">
+  <a href="http://gabll.github.io" title="gabll blog"><img id="logo" src="http://gabll.github.io/images/logo.png" /></a>
+  <h1 id="site_title"></h1>
+  <h3 id="site_subtitle">Disparate Data Science Insights and Tools</h3>
+</section>
+
+<section id="menu">
+  <ul>
+    <li><i class="fa fa-home fa-lg"></i><a href="http://gabll.github.io"> Home </a></li>
+    <li><i class="fa fa-calendar fa-lg"></i><a href="http://gabll.github.io/blog/archives/"> Archives </a></li>
+    <li><i class="fa fa-rss fa-lg"></i><a href="http://gabll.github.io/atom.xml"> Feed </a></li>
+  </ul>
+</section>
+
+<section id="social">
+  
+
+  
+
+  
+
+  
+    <a href="https://github.com/gabll" title="gabll"><i class="fa fa-github fa-2x"></i></a>
+  
+
+  
+
+  
+  
+  
+</section>
+
+
+<section>
+  <ul id="recent_posts">
+  </ul>
+</section>
+
+<section>
+  <h1>GitHub Repos</h1>
+  <ul id="gh_repos">
+    <li class="loading">Status updating&#8230;</li>
+  </ul>
+  
+  <a href="https://github.com/gabll">@gabll</a> on GitHub
+  
+  <script type="text/javascript">
+    $.domReady(function(){
+        if (!window.jXHR){
+            var jxhr = document.createElement('script');
+            jxhr.type = 'text/javascript';
+            jxhr.src = '/javascripts/libs/jXHR.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(jxhr, s);
+        }
+
+        github.showRepos({
+            user: 'gabll',
+            count: 0,
+            skip_forks: true,
+            target: '#gh_repos'
+        });
+    });
+  </script>
+  <script src="/javascripts/github.js" type="text/javascript"> </script>
+</section>
+
+
+
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2015 - Gabll -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+<script type="text/javascript">
+      var disqus_shortname = 'gabll';
+      
+        
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://gabll.github.io/blog/2015/04/07/recommendation-restaurants/';
+        var disqus_url = 'http://gabll.github.io/blog/2015/04/07/recommendation-restaurants/';
+        var disqus_script = 'embed.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = 'http://' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = '//platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>

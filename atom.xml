@@ -4,7 +4,7 @@
   <title><![CDATA[gabll blog]]></title>
   <link href="http://gabll.github.io/atom.xml" rel="self"/>
   <link href="http://gabll.github.io/"/>
-  <updated>2015-03-08T18:22:38-04:00</updated>
+  <updated>2015-04-06T23:47:46-04:00</updated>
   <id>http://gabll.github.io/</id>
   <author>
     <name><![CDATA[Gabll]]></name>
@@ -12,6 +12,43 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[A recommendation engine for restaurants based on online reviews]]></title>
+    <link href="http://gabll.github.io/blog/2015/04/07/recommendation-restaurants/"/>
+    <updated>2015-04-07T00:30:17-04:00</updated>
+    <id>http://gabll.github.io/blog/2015/04/07/recommendation-restaurants</id>
+    <content type="html"><![CDATA[<p>As always when you are experiencing a &ldquo;<a href="http://en.wikipedia.org/wiki/Flow_(psychology)#Components">flow condition</a>&rdquo;, I didin&rsquo;t realized that the <a href="http://www.thisismetis.com/">Metis Data Science Bootcamp</a> came to an end. During these intense weeks we deepened our knlowledge of statistics and machine learning, as well as design and data visualization, in a way that surely I wasn&rsquo;t expecting at the beginning.</p>
+
+<p>In the last 4 weeks we covered &ldquo;Big Data&rdquo; topics like Hadoop, MapReduce, Hive, etc, while focusing on a final passion project. I worked on the design and development of a collaborative-filtering recommendation engine for restaurants based on user reviews.</p>
+
+<p><strong>Scraping framework</strong>: I used <a href="http://scrapy.org/">Scrapy</a> and <a href="https://github.com/scrapinghub/splash">Splash</a> for rendering and sraping almost one million reviews of NYC restaurants. I found Scrapy is a very robust and powerful tool for scraping, since he can manage concurrent requests and can be easily interfaced with javascript renderers like Splash.</p>
+
+<p style="text-align:center;"><img src="http://gabll.github.io/images/framewk.png" width="500" alt="Framework" /></p>
+
+<p>The basic idea underneath the <a href="http://en.wikipedia.org/wiki/Collaborative_filtering">collaborative-filtering</a> algorithm is to look for similar users, find the restaurants that they liked and rank them.</p>
+
+<p><strong>Similar users</strong>: after feature selection (I considered only restaurants and users with at least 5 reviews) and dimensionality reduction (using the <a href="http://scikit-learn.org/stable/auto_examples/decomposition/plot_incremental_pca.html">IncrementalPCA</a> in the last version of sklearn - 0.16), I got a dense matrix in which similar users can be found with a <a href="http://scikit-learn.org/stable/modules/neighbors.html">nearest neighbor</a> algorithm, using a <a href="http://docs.scipy.org/doc/scipy-0.14.0/reference/generated/scipy.spatial.distance.correlation.html">correlation</a> distance metric (it permits to take in account different scoring attitudes between the users, e.g. one user may give only scores from 3 to 5 stars and another only from 2 to 4).</p>
+
+<p style="text-align:center;"><img src="http://gabll.github.io/images/rec.png" width="500" alt="Sim_users" /></p>
+
+<p><strong>Recommendations</strong>: after getting the list of restaurants reviewed by the similar users, I developed a scoring method for preticting the number of stars. Based on a bayesian approach, it consists basically in updating a prior containing the overall stars smoothed by the total number of reviews for the restaurant with a posterior, i.e. the weighted average of the reviews of the similar users (where the weights takes in account the number of restaurants in common, the total reviews of the user and his number of helpful votes reveived).</p>
+
+<p style="text-align:center;"><img src="http://gabll.github.io/images/formula.png" width="500" alt="Formula" /></p>
+
+<p>The main tuning parameters of the model are k (the number of nearest users to consider), alpha (how many additional users to include in the prior) and beta (how many reviews a restaurant must have in order to consider the overall average stars reliable).</p>
+
+<p><strong>User interface</strong>: Afer tuning the model, I created a web application using <a href="http://flask.pocoo.org/">Flask</a>, <a href="http://getbootstrap.com/">Boostrap</a> and other javascript packages like <a href="http://www.json2html.com/">json2html</a>, <a href="http://nicolasbize.com/magicsuggest/">magicsuggest</a> and <a href="http://davidstutz.github.io/bootstrap-multiselect/">multiselect</a>. While I already used Flask in a previous project, Bootstrap was a very nice surpise: it&rsquo;s modern, clean and easy to use - all features that makes it an ideal choice for rapid prototyping.</p>
+
+<p>Here is the final version of the webapp: <strong><a href="http://www.restommendation.com">www.restommendation.com</a></strong></p>
+
+<p style="text-align:center;"><a href="http://www.restommendation.com/"><img src="http://gabll.github.io/images/screen.png" width="500" alt="Screenshot" /></a></p>
+
+<p>As next steps, I will try to make the app available also for other cities, as well as creating an online-training mechanism for improving the recommendations (like/don&rsquo;t like buttons).</p>
+
+<p><a href="https://github.com/gabll/Metis-Kojak">GitHub repository for this project</a></p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Applying clustering techniques on recipes and ingredients]]></title>
