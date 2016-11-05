@@ -9,7 +9,7 @@
   <meta name="author" content="Gabll">
 
   
-  <meta name="description" content="As always when you are experiencing a &ldquo;flow condition&rdquo;, I didin&rsquo;t realized that the Metis Data Science Bootcamp came to an end. &hellip;">
+  <meta name="description" content="My hometown is a touristic island on the seaside near to the beach. There is only one bridge that connects it to the mainland, and it means that &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -68,6 +68,59 @@
       
   <header>
     
+      <h1 class="entry-title"><a href="/blog/2016/08/31/monitoring-road-traffic/">Monitoring Traffic Jams, an Easy Way</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+<time class='entry-date' datetime='2016-08-31T01:30:47+02:00'><span class='date'><span class='date-month'>Aug</span> <span class='date-day'>31</span><span class='date-suffix'>st</span>, <span class='date-year'>2016</span></span> <span class='time'>1:30 am</span></time>
+        
+         | <a href="/blog/2016/08/31/monitoring-road-traffic/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>My <a href="https://en.wikipedia.org/wiki/Chioggia">hometown</a> is a touristic island on the seaside near to the beach. There is only one bridge that connects it to the mainland, and it means that traffic is a nightmare during summer, with frequent and annoying jams.</p>
+
+<p style="text-align:center;"><img src="/images/jam_meme.jpg" width="200" alt="jam_meme" /></p>
+
+<p>Jam hours depend on a lot of circumstances (weekday, traffic flow dynamics, weather, etc) and they seem to be nearly unpredictable. Well, I felt that I had to do something about it. I wanted to know at least <strong>how much</strong> traffic there is now, if is increasing or not, and its typical variation within the day.</p>
+
+<p>It was definitely a topic for a small passion project during work vacation, so I&rsquo;ve built a small mobile app in Flask to help drivers understand whether or not put themselves on the road. I called it <a href="https://github.com/gabll/RomeaJam">RomeaJam</a>:</p>
+
+<p style="text-align:center;"><a href="http://www.romeajam.com/"><img src="/images/romeajam_screenshot.png" width="350" alt="Screenshot" /></a></p>
+
+<p>This little project led me to learn some cool Python stuff:</p>
+
+<ul>
+<li><p>ORMs: <a href="http://www.sqlalchemy.org/">SQLAlchemy</a> was a revelation - I always desired an abstraction level that could handle classes without writing raw SQL!</p></li>
+<li><p>Flask packages: <a href="http://flask.pocoo.org/">Flask</a> is growing very fast, and there is an ecosystem of packages for doing literally everything (<a href="https://github.com/viniciuschiele/flask-apscheduler">scheduling jobs</a>, <a href="http://flask-sqlalchemy.pocoo.org/2.1/">manage SQLAlchemy</a>, <a href="http://pythonhosted.org/Flask-Track-Usage/">tracking app usage</a> on the server side without cookies, etc)</p></li>
+<li><p><a href="http://flask.pocoo.org/docs/0.11/deploying/mod_wsgi/">Deploy Flask</a> to production: I used apache2 with a python <a href="https://virtualenv.pypa.io/en/stable/">virtualenv</a>, and I learned that it can be quite an hassle. I definitely have to try to <em>dokerize</em> it.</p></li>
+</ul>
+
+
+<p>I&rsquo;m also excited because in the next year I will have enough data for time series analysis and short term traffic predictions!</p>
+
+<p><a href="https://github.com/gabll/RomeaJam">GitHub repository for this project</a></p>
+
+<p><strong>UPDATE (2016-11-05):</strong> The months passed and my MySQL database is still increasing (2M rows!). I learned that an index rebuild with <code>mysqlcheck -Aa -uroot -p</code> can speed up querying time, but still the webapp became very slow (expecially on query with joins). During the winter it&rsquo;s not used, but in the next summer I will have to move old data to a different database, leaving only the last month available for the webapp.</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
       <h1 class="entry-title"><a href="/blog/2015/04/07/recommendation-restaurants/">A Recommendation Engine for Restaurants Based on Online Reviews</a></h1>
     
     
@@ -76,7 +129,7 @@
 
 
 
-<time class='entry-date' datetime='2015-04-07T00:30:17-04:00'><span class='date'><span class='date-month'>Apr</span> <span class='date-day'>7</span><span class='date-suffix'>th</span>, <span class='date-year'>2015</span></span> <span class='time'>12:30 am</span></time>
+<time class='entry-date' datetime='2015-04-07T06:30:17+02:00'><span class='date'><span class='date-month'>Apr</span> <span class='date-day'>7</span><span class='date-suffix'>th</span>, <span class='date-year'>2015</span></span> <span class='time'>6:30 am</span></time>
         
          | <a href="/blog/2015/04/07/recommendation-restaurants/#disqus_thread">Comments</a>
         
@@ -126,7 +179,7 @@
       
   <header>
     
-      <h1 class="entry-title"><a href="/blog/2015/03/07/clustering-recipes-and-ingredients/">Applying Clustering Techniques on Recipes and Ingredients</a></h1>
+      <h1 class="entry-title"><a href="/blog/2015/03/08/clustering-recipes-and-ingredients/">Applying Clustering Techniques on Recipes and Ingredients</a></h1>
     
     
       <p class="meta">
@@ -134,9 +187,9 @@
 
 
 
-<time class='entry-date' datetime='2015-03-07T23:30:17-05:00'><span class='date'><span class='date-month'>Mar</span> <span class='date-day'>7</span><span class='date-suffix'>th</span>, <span class='date-year'>2015</span></span> <span class='time'>11:30 pm</span></time>
+<time class='entry-date' datetime='2015-03-08T05:30:17+01:00'><span class='date'><span class='date-month'>Mar</span> <span class='date-day'>8</span><span class='date-suffix'>th</span>, <span class='date-year'>2015</span></span> <span class='time'>5:30 am</span></time>
         
-         | <a href="/blog/2015/03/07/clustering-recipes-and-ingredients/#disqus_thread">Comments</a>
+         | <a href="/blog/2015/03/08/clustering-recipes-and-ingredients/#disqus_thread">Comments</a>
         
       </p>
     
@@ -176,7 +229,7 @@
 
 
 
-<time class='entry-date' datetime='2015-02-22T10:23:17-05:00'><span class='date'><span class='date-month'>Feb</span> <span class='date-day'>22</span><span class='date-suffix'>nd</span>, <span class='date-year'>2015</span></span> <span class='time'>10:23 am</span></time>
+<time class='entry-date' datetime='2015-02-22T16:23:17+01:00'><span class='date'><span class='date-month'>Feb</span> <span class='date-day'>22</span><span class='date-suffix'>nd</span>, <span class='date-year'>2015</span></span> <span class='time'>4:23 pm</span></time>
         
          | <a href="/blog/2015/02/22/decision-support-system-for-bank-marketing-calls/#disqus_thread">Comments</a>
         
@@ -222,7 +275,7 @@ The interface of this decision support system is quite simple: given some inputs
 
 
 
-<time class='entry-date' datetime='2015-02-15T17:30:42-05:00'><span class='date'><span class='date-month'>Feb</span> <span class='date-day'>15</span><span class='date-suffix'>th</span>, <span class='date-year'>2015</span></span> <span class='time'>5:30 pm</span></time>
+<time class='entry-date' datetime='2015-02-15T23:30:42+01:00'><span class='date'><span class='date-month'>Feb</span> <span class='date-day'>15</span><span class='date-suffix'>th</span>, <span class='date-year'>2015</span></span> <span class='time'>11:30 pm</span></time>
         
          | <a href="/blog/2015/02/15/customizing-ipython-notebook/#disqus_thread">Comments</a>
         
@@ -279,7 +332,7 @@ require(["nbextensions/theme_toggle"], function (theme_toggle) {
 
 
 
-<time class='entry-date' datetime='2015-02-01T16:14:46-05:00'><span class='date'><span class='date-month'>Feb</span> <span class='date-day'>1</span><span class='date-suffix'>st</span>, <span class='date-year'>2015</span></span> <span class='time'>4:14 pm</span></time>
+<time class='entry-date' datetime='2015-02-01T22:14:46+01:00'><span class='date'><span class='date-month'>Feb</span> <span class='date-day'>1</span><span class='date-suffix'>st</span>, <span class='date-year'>2015</span></span> <span class='time'>10:14 pm</span></time>
         
          | <a href="/blog/2015/02/01/project-luter-web-scraping-and-linear-regression-on-box-office-movies-data/#disqus_thread">Comments</a>
         
@@ -316,7 +369,7 @@ At the end, we developed and presented to the class an individual project based 
 
 
 
-<time class='entry-date' datetime='2015-01-12T15:49:47-05:00'><span class='date'><span class='date-month'>Jan</span> <span class='date-day'>12</span><span class='date-suffix'>th</span>, <span class='date-year'>2015</span></span> <span class='time'>3:49 pm</span></time>
+<time class='entry-date' datetime='2015-01-12T21:49:47+01:00'><span class='date'><span class='date-month'>Jan</span> <span class='date-day'>12</span><span class='date-suffix'>th</span>, <span class='date-year'>2015</span></span> <span class='time'>9:49 pm</span></time>
         
          | <a href="/blog/2015/01/12/first-post/#disqus_thread">Comments</a>
         
@@ -423,7 +476,7 @@ Personalising template and layout is quite time consuming, but there is no need 
     </div>
   </div>
   <footer role="contentinfo"><p>
-  Copyright &copy; 2015 - Gabll -
+  Copyright &copy; 2016 - Gabll -
   <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
 </p>
 

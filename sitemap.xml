@@ -1,61 +1,66 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>http://gabll.github.io/blog/2015/04/07/recommendation-restaurants/</loc>
-    <lastmod>2015-04-07T00:30:17-04:00</lastmod>
+    <loc>http://gabll.github.io/blog/2016/08/31/monitoring-road-traffic/</loc>
+    <lastmod>2016-08-31T01:30:47+02:00</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>http://gabll.github.io/blog/2015/03/07/clustering-recipes-and-ingredients/</loc>
-    <lastmod>2015-03-07T23:30:17-05:00</lastmod>
+    <loc>http://gabll.github.io/blog/2015/04/07/recommendation-restaurants/</loc>
+    <lastmod>2015-04-07T06:30:17+02:00</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>http://gabll.github.io/blog/2015/03/08/clustering-recipes-and-ingredients/</loc>
+    <lastmod>2015-03-08T05:30:17+01:00</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>http://gabll.github.io/blog/2015/02/22/decision-support-system-for-bank-marketing-calls/</loc>
-    <lastmod>2015-02-22T10:23:17-05:00</lastmod>
+    <lastmod>2015-02-22T16:23:17+01:00</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>http://gabll.github.io/blog/2015/02/15/customizing-ipython-notebook/</loc>
-    <lastmod>2015-02-15T17:30:42-05:00</lastmod>
+    <lastmod>2015-02-15T23:30:42+01:00</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>http://gabll.github.io/blog/2015/02/01/project-luter-web-scraping-and-linear-regression-on-box-office-movies-data/</loc>
-    <lastmod>2015-02-01T16:14:46-05:00</lastmod>
+    <lastmod>2015-02-01T22:14:46+01:00</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>http://gabll.github.io/blog/2015/01/12/first-post/</loc>
-    <lastmod>2015-01-12T15:49:47-05:00</lastmod>
+    <lastmod>2015-01-12T21:49:47+01:00</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>http://gabll.github.io/blog/archives/</loc>
-    <lastmod>2015-04-08T09:43:07-04:00</lastmod>
+    <lastmod>2016-11-05T19:03:34+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>http://gabll.github.io/</loc>
-    <lastmod>2015-04-08T09:43:07-04:00</lastmod>
+    <lastmod>2016-11-05T19:03:34+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>http://gabll.github.io/about/</loc>
-    <lastmod>2015-04-08T09:43:07-04:00</lastmod>
+    <lastmod>2016-11-05T19:03:34+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>http://gabll.github.io/blog/bank-dss-mvp.html</loc>
-    <lastmod>2015-02-22T22:38:43-05:00</lastmod>
+    <lastmod>2015-02-23T04:38:43+01:00</lastmod>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>http://gabll.github.io/blog/ingredients_clustering.html</loc>
-    <lastmod>2015-03-07T22:54:20-05:00</lastmod>
+    <lastmod>2015-03-08T04:54:20+01:00</lastmod>
     <priority>0.6</priority>
   </url>
 </urlset>

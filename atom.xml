@@ -4,7 +4,7 @@
   <title><![CDATA[gabll blog]]></title>
   <link href="http://gabll.github.io/atom.xml" rel="self"/>
   <link href="http://gabll.github.io/"/>
-  <updated>2015-04-08T09:43:07-04:00</updated>
+  <updated>2016-11-05T19:03:34+01:00</updated>
   <id>http://gabll.github.io/</id>
   <author>
     <name><![CDATA[Gabll]]></name>
@@ -14,9 +14,41 @@
 
   
   <entry>
+    <title type="html"><![CDATA[Monitoring traffic jams, an easy way]]></title>
+    <link href="http://gabll.github.io/blog/2016/08/31/monitoring-road-traffic/"/>
+    <updated>2016-08-31T01:30:47+02:00</updated>
+    <id>http://gabll.github.io/blog/2016/08/31/monitoring-road-traffic</id>
+    <content type="html"><![CDATA[<p>My <a href="https://en.wikipedia.org/wiki/Chioggia">hometown</a> is a touristic island on the seaside near to the beach. There is only one bridge that connects it to the mainland, and it means that traffic is a nightmare during summer, with frequent and annoying jams.</p>
+
+<p style="text-align:center;"><img src="http://gabll.github.io/images/jam_meme.jpg" width="200" alt="jam_meme" /></p>
+
+<p>Jam hours depend on a lot of circumstances (weekday, traffic flow dynamics, weather, etc) and they seem to be nearly unpredictable. Well, I felt that I had to do something about it. I wanted to know at least <strong>how much</strong> traffic there is now, if is increasing or not, and its typical variation within the day.</p>
+
+<p>It was definitely a topic for a small passion project during work vacation, so I&rsquo;ve built a small mobile app in Flask to help drivers understand whether or not put themselves on the road. I called it <a href="https://github.com/gabll/RomeaJam">RomeaJam</a>:</p>
+
+<p style="text-align:center;"><a href="http://www.romeajam.com/"><img src="http://gabll.github.io/images/romeajam_screenshot.png" width="350" alt="Screenshot" /></a></p>
+
+<p>This little project led me to learn some cool Python stuff:</p>
+
+<ul>
+<li><p>ORMs: <a href="http://www.sqlalchemy.org/">SQLAlchemy</a> was a revelation - I always desired an abstraction level that could handle classes without writing raw SQL!</p></li>
+<li><p>Flask packages: <a href="http://flask.pocoo.org/">Flask</a> is growing very fast, and there is an ecosystem of packages for doing literally everything (<a href="https://github.com/viniciuschiele/flask-apscheduler">scheduling jobs</a>, <a href="http://flask-sqlalchemy.pocoo.org/2.1/">manage SQLAlchemy</a>, <a href="http://pythonhosted.org/Flask-Track-Usage/">tracking app usage</a> on the server side without cookies, etc)</p></li>
+<li><p><a href="http://flask.pocoo.org/docs/0.11/deploying/mod_wsgi/">Deploy Flask</a> to production: I used apache2 with a python <a href="https://virtualenv.pypa.io/en/stable/">virtualenv</a>, and I learned that it can be quite an hassle. I definitely have to try to <em>dokerize</em> it.</p></li>
+</ul>
+
+
+<p>I&rsquo;m also excited because in the next year I will have enough data for time series analysis and short term traffic predictions!</p>
+
+<p><a href="https://github.com/gabll/RomeaJam">GitHub repository for this project</a></p>
+
+<p><strong>UPDATE (2016-11-05):</strong> The months passed and my MySQL database is still increasing (2M rows!). I learned that an index rebuild with <code>mysqlcheck -Aa -uroot -p</code> can speed up querying time, but still the webapp became very slow (expecially on query with joins). During the winter it&rsquo;s not used, but in the next summer I will have to move old data to a different database, leaving only the last month available for the webapp.</p>
+]]></content>
+  </entry>
+  
+  <entry>
     <title type="html"><![CDATA[A recommendation engine for restaurants based on online reviews]]></title>
     <link href="http://gabll.github.io/blog/2015/04/07/recommendation-restaurants/"/>
-    <updated>2015-04-07T00:30:17-04:00</updated>
+    <updated>2015-04-07T06:30:17+02:00</updated>
     <id>http://gabll.github.io/blog/2015/04/07/recommendation-restaurants</id>
     <content type="html"><![CDATA[<p>As always when you are experiencing a &ldquo;<a href="http://en.wikipedia.org/wiki/Flow_(psychology)#Components">flow condition</a>&rdquo;, I didin&rsquo;t realized that the <a href="http://www.thisismetis.com/">Metis Data Science Bootcamp</a> came to an end. During these intense weeks we deepened our knlowledge of statistics and machine learning, as well as design and data visualization, in a way that surely I wasn&rsquo;t expecting at the beginning.</p>
 
@@ -52,9 +84,9 @@
   
   <entry>
     <title type="html"><![CDATA[Applying clustering techniques on recipes and ingredients]]></title>
-    <link href="http://gabll.github.io/blog/2015/03/07/clustering-recipes-and-ingredients/"/>
-    <updated>2015-03-07T23:30:17-05:00</updated>
-    <id>http://gabll.github.io/blog/2015/03/07/clustering-recipes-and-ingredients</id>
+    <link href="http://gabll.github.io/blog/2015/03/08/clustering-recipes-and-ingredients/"/>
+    <updated>2015-03-08T05:30:17+01:00</updated>
+    <id>http://gabll.github.io/blog/2015/03/08/clustering-recipes-and-ingredients</id>
     <content type="html"><![CDATA[<p>In the last two weeks at the <a href="http://www.thisismetis.com">Metis Data Science Bootcamp</a> we dived into NoSQL databases and natural language processing (week 7), unsupervised learning algorithms (week 7-8), dimensionality reduction, topic modeling and similarity (week 8), while working on an individual project: I choose to apply unsupervised learning techniques for clustering text data.</p>
 
 <p>Firstly, I used the <a href="http://developer.pearson.com/apis/pearson-kitchen-manager">Pearson Kitchen Manager API</a> for clustering almost 500 worldwide recipes basing on their ingredients. After applying several algorithms, I extracted the top keywords for some of the clusters and printed them in word clouds:</p>
@@ -74,7 +106,7 @@
   <entry>
     <title type="html"><![CDATA[Decision support system for bank marketing calls]]></title>
     <link href="http://gabll.github.io/blog/2015/02/22/decision-support-system-for-bank-marketing-calls/"/>
-    <updated>2015-02-22T10:23:17-05:00</updated>
+    <updated>2015-02-22T16:23:17+01:00</updated>
     <id>http://gabll.github.io/blog/2015/02/22/decision-support-system-for-bank-marketing-calls</id>
     <content type="html"><![CDATA[<p>In these weeks at the <a href="http://www.thisismetis.com">Metis Data Science Bootcamp</a> we covered SQL on cloud servers (week 4), supervised learning algorithms with <a href="http://scikit-learn.org/">sklearn</a> and <a href="http://statsmodels.sourceforge.net/">statsmodels</a> (week 4-5), classification errors (week 5), interactive visualization and <a href="http://d3js.org/">d3.js</a> (week 6).</p>
 
@@ -99,7 +131,7 @@ The interface of this decision support system is quite simple: given some inputs
   <entry>
     <title type="html"><![CDATA[Customizing IPython notebook]]></title>
     <link href="http://gabll.github.io/blog/2015/02/15/customizing-ipython-notebook/"/>
-    <updated>2015-02-15T17:30:42-05:00</updated>
+    <updated>2015-02-15T23:30:42+01:00</updated>
     <id>http://gabll.github.io/blog/2015/02/15/customizing-ipython-notebook</id>
     <content type="html"><![CDATA[<p><a href="http://ipython.org/notebook.html">IPhython notebook</a> is a very popular platform for coding and sharing projects in Python. Only recently I found a lot of official and unofficial extensions for improving its usability. Among them, I installed the following:</p>
 
@@ -135,7 +167,7 @@ require(["nbextensions/theme_toggle"], function (theme_toggle) {
   <entry>
     <title type="html"><![CDATA[Project Luther: web scraping and linear regression on box office movies data]]></title>
     <link href="http://gabll.github.io/blog/2015/02/01/project-luter-web-scraping-and-linear-regression-on-box-office-movies-data/"/>
-    <updated>2015-02-01T16:14:46-05:00</updated>
+    <updated>2015-02-01T22:14:46+01:00</updated>
     <id>http://gabll.github.io/blog/2015/02/01/project-luter-web-scraping-and-linear-regression-on-box-office-movies-data</id>
     <content type="html"><![CDATA[<p>Last two weeks at the <a href="http://www.thisismetis.com/data-science">Metis Data Science Bootcamp</a> were quite intense. We learned the basics of web scraping with two interesting and powerful Python packages, <a href="http://www.crummy.com/software/BeautifulSoup/">BeautifulSoup</a> and <a href="https://code.google.com/p/selenium/">Selenium</a>, how to analyze and manipulate dataframes with <a href="http://pandas.pydata.org/">Pandas</a> and theory/applications of linear regression models.<br/>
 At the end, we developed and presented to the class an individual project based on &ldquo;movies data&rdquo;. Everyone tried to answer a different question, from predicting success of movies based on tv series to understanding the key factors that determine the success of trilogies. My project was about predicting the box office opening income during the first weekend and determing the additional opening revenues in case of changing the release season given the genre.</p>
@@ -151,7 +183,7 @@ At the end, we developed and presented to the class an individual project based 
   <entry>
     <title type="html"><![CDATA[Hello world!]]></title>
     <link href="http://gabll.github.io/blog/2015/01/12/first-post/"/>
-    <updated>2015-01-12T15:49:47-05:00</updated>
+    <updated>2015-01-12T21:49:47+01:00</updated>
     <id>http://gabll.github.io/blog/2015/01/12/first-post</id>
     <content type="html"><![CDATA[<p>First day at the <a href="http://www.thisismetis.com/">Metis Data Science Bootcamp</a>! We started with an interesting icebreaker game, the <a href="http://datascopeanalytics.com/what-we-think/2014/09/18/hipster-classifier-icebreaker">hipster classifier</a>, and setting up the developing environment for the next weeks (GitHub, Python packages, etc). And as a consequence of this, my first blog post!</p>
 

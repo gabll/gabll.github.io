@@ -5,11 +5,11 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Decision support system for bank marketing calls - gabll blog</title>
+  <title>Applying clustering techniques on recipes and ingredients - gabll blog</title>
   <meta name="author" content="Gabll">
 
   
-  <meta name="description" content="In these weeks at the Metis Data Science Bootcamp we covered SQL on cloud servers (week 4), supervised learning algorithms with sklearn and &hellip;">
+  <meta name="description" content="In the last two weeks at the Metis Data Science Bootcamp we dived into NoSQL databases and natural language processing (week 7), unsupervised &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -18,7 +18,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://gabll.github.io/blog/2015/02/22/decision-support-system-for-bank-marketing-calls/">
+  <link rel="canonical" href="http://gabll.github.io/blog/2015/03/08/clustering-recipes-and-ingredients/">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
    <link href="/stylesheets/data-table.css" media="screen, projection" rel="stylesheet" type="text/css" />
@@ -65,7 +65,7 @@
   
   <header>
     
-      <h1 class="entry-title">Decision Support System for Bank Marketing Calls</h1>
+      <h1 class="entry-title">Applying Clustering Techniques on Recipes and Ingredients</h1>
     
     
       <p class="meta">
@@ -73,7 +73,7 @@
 
 
 
-<time class='entry-date' datetime='2015-02-22T16:23:17+01:00'><span class='date'><span class='date-month'>Feb</span> <span class='date-day'>22</span><span class='date-suffix'>nd</span>, <span class='date-year'>2015</span></span> <span class='time'>4:23 pm</span></time>
+<time class='entry-date' datetime='2015-03-08T05:30:17+01:00'><span class='date'><span class='date-month'>Mar</span> <span class='date-day'>8</span><span class='date-suffix'>th</span>, <span class='date-year'>2015</span></span> <span class='time'>5:30 am</span></time>
         
          | <a href="#disqus_thread">Comments</a>
         
@@ -82,23 +82,19 @@
   </header>
 
 
-<div class="entry-content"><p>In these weeks at the <a href="http://www.thisismetis.com">Metis Data Science Bootcamp</a> we covered SQL on cloud servers (week 4), supervised learning algorithms with <a href="http://scikit-learn.org/">sklearn</a> and <a href="http://statsmodels.sourceforge.net/">statsmodels</a> (week 4-5), classification errors (week 5), interactive visualization and <a href="http://d3js.org/">d3.js</a> (week 6).</p>
+<div class="entry-content"><p>In the last two weeks at the <a href="http://www.thisismetis.com">Metis Data Science Bootcamp</a> we dived into NoSQL databases and natural language processing (week 7), unsupervised learning algorithms (week 7-8), dimensionality reduction, topic modeling and similarity (week 8), while working on an individual project: I choose to apply unsupervised learning techniques for clustering text data.</p>
 
-<p>As a connecting fil rouge, we also worked on a individual project. I used <a href="https://archive.ics.uci.edu/ml/datasets/Bank+Marketing">this public dataset</a> from the University of California containing data about bank marketing calls for a short term deposit subscription.</p>
+<p>Firstly, I used the <a href="http://developer.pearson.com/apis/pearson-kitchen-manager">Pearson Kitchen Manager API</a> for clustering almost 500 worldwide recipes basing on their ingredients. After applying several algorithms, I extracted the top keywords for some of the clusters and printed them in word clouds:</p>
 
-<p>My initial goal was to build a classifier in order to understand the probability of subscription given a set of features about the clients (age, job, marital status, etc), the  economic context (euribor rate, unemployment, etc) and the performances of the previous marketing campaigns (days from the last contact, previous campaign result, etc).<br/>
-At the end, I chose a logistic regression model for its performance in terms of precision and recall.</p>
+<p style="text-align:center;"><a href="/images/Rec_cluster_1.jpg"><img src="/images/Rec_cluster_1.jpg" width="200" alt="Rec_cluster_1" /></a> <a href="/images/Rec_cluster_1.jpg"><img src="/images/Rec_cluster_2.jpg" width="200" alt="Rec_cluster_2" /></a> <a href="/images/Rec_cluster_1.jpg"><img src="/images/Rec_cluster_4.jpg" width="200" alt="Rec_cluster_4" /></a></p>
 
-<p>Then, as my first d3 project, I focused on creating a day-to-day <a href="http://gabll.github.io/blog/bank-dss-mvp.html">dashboard</a> for the bank employees that could help them to address the marketing calls to the right clients in the right day.<br/>
-The interface of this decision support system is quite simple: given some inputs about the current day and the economic indicators, it shows the customers sorted by their short term deposit subscription probability, with the ability to look for further details about the specific client.</p>
+<p>Secondly, I switched to the <a href="http://developer.yummly.com">Yummly API</a> for clustering ingredients on 17,000 Italian recipes from 1,000 blogs and kitchen websites. This time, the basic idea underneath ingredients clustering was to extract a bunch of not-too-rare and not-too-common ingredients, so I selected 71 ingredients with the help of a variance threshold. Then I built a <em>relationship matrix</em> between these ingredients using different scoring methods (jaccard similarity, joint probability score, etc). After trying some combinations of clustering algorithms and input matrices, I put one of the results in this <a href="http://gabll.github.io/blog/ingredients_clustering.html">d3 visualization</a>:</p>
 
-<p style="text-align:center;"><a href="http://gabll.github.io/blog/bank-dss-mvp.html"><img src="/images/bank-dss.png" alt="Metis-McNulty" /></a></p>
+<p style="text-align:center;"><a href="http://gabll.github.io/blog/ingredients_clustering.html"><img src="/images/ingredients.png" alt="Metis-McNulty" /></a></p>
 
-<p>Some lessons learned during this project: feature selection and model evaluation require a deep understanding of the underlying math and the tools used, and visualization can take the same (or even more) amount of time of cleaning and preparing the data.</p>
+<p>As we should expect, items like <em>(yeast, flour, milk)</em> or <em>(mozzarella, tomato sauce, pizza doughs)</em> are grouped together, and the clusters themselves can help while compiling a shopping list.</p>
 
-<p><a href="https://github.com/gabll/Metis-McNulty">Github repository of this project</a></p>
-
-<p><em>Update (02/24/2015):</em> I moved the logistic regression model to Python (instead of including it in the web page with javascript) using the <a href="http://flask.pocoo.org/">Flask</a> package: <a href="http://104.236.210.23:8000/">live demo here</a>. The response of the server can be a bit slower, but in this way it will be easier in the future to create a model with online training from the user inputs.</p>
+<p>At the end, I learned that tuning a clustering algorithm is more an art than a science: you need to explore not conventional approaches and combine different techniques basing on your intuition and the specific question you are trying to answer.</p>
 </div>
 
 
@@ -113,7 +109,7 @@ The interface of this decision support system is quite simple: given some inputs
 
 
 
-<time class='entry-date' datetime='2015-02-22T16:23:17+01:00'><span class='date'><span class='date-month'>Feb</span> <span class='date-day'>22</span><span class='date-suffix'>nd</span>, <span class='date-year'>2015</span></span> <span class='time'>4:23 pm</span></time>
+<time class='entry-date' datetime='2015-03-08T05:30:17+01:00'><span class='date'><span class='date-month'>Mar</span> <span class='date-day'>8</span><span class='date-suffix'>th</span>, <span class='date-year'>2015</span></span> <span class='time'>5:30 am</span></time>
       
 
 
@@ -121,7 +117,7 @@ The interface of this decision support system is quite simple: given some inputs
     
       <div class="sharing">
   
-  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://gabll.github.io/blog/2015/02/22/decision-support-system-for-bank-marketing-calls/" data-via="" data-counturl="http://gabll.github.io/blog/2015/02/22/decision-support-system-for-bank-marketing-calls/" >Tweet</a>
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://gabll.github.io/blog/2015/03/08/clustering-recipes-and-ingredients/" data-via="" data-counturl="http://gabll.github.io/blog/2015/03/08/clustering-recipes-and-ingredients/" >Tweet</a>
   
   
   
@@ -130,10 +126,10 @@ The interface of this decision support system is quite simple: given some inputs
     
     <p class="meta">
       
-        <a class="basic-alignment left" href="/blog/2015/02/15/customizing-ipython-notebook/" title="Previous Post: Customizing IPython notebook">&laquo; Customizing IPython notebook</a>
+        <a class="basic-alignment left" href="/blog/2015/02/22/decision-support-system-for-bank-marketing-calls/" title="Previous Post: Decision support system for bank marketing calls">&laquo; Decision support system for bank marketing calls</a>
       
       
-        <a class="basic-alignment right" href="/blog/2015/03/08/clustering-recipes-and-ingredients/" title="Next Post: Applying clustering techniques on recipes and ingredients">Applying clustering techniques on recipes and ingredients &raquo;</a>
+        <a class="basic-alignment right" href="/blog/2015/04/07/recommendation-restaurants/" title="Next Post: A recommendation engine for restaurants based on online reviews">A recommendation engine for restaurants based on online reviews &raquo;</a>
       
     </p>
   </footer>
@@ -239,8 +235,8 @@ The interface of this decision support system is quite simple: given some inputs
       
         
         // var disqus_developer = 1;
-        var disqus_identifier = 'http://gabll.github.io/blog/2015/02/22/decision-support-system-for-bank-marketing-calls/';
-        var disqus_url = 'http://gabll.github.io/blog/2015/02/22/decision-support-system-for-bank-marketing-calls/';
+        var disqus_identifier = 'http://gabll.github.io/blog/2015/03/08/clustering-recipes-and-ingredients/';
+        var disqus_url = 'http://gabll.github.io/blog/2015/03/08/clustering-recipes-and-ingredients/';
         var disqus_script = 'embed.js';
       
     (function () {
